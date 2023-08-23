@@ -1,3 +1,8 @@
 .active {
   text-decoration: underline;
+  text-decoration-thickness: 50%;
+}
+
+.pointer {
+  cursor: pointer;
 }
