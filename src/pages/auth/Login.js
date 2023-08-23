@@ -7,7 +7,7 @@ import Jumbotron from "../../components/cards/Jumbotron";
 import { useAuth } from "../../context/auth";
 
 const Login = () => {
-  const [email, setEmail] = useState("krismat@op.pl");
+  const [email, setEmail] = useState("kris@gmail.com");
   const [password, setPassword] = useState("123456");
 
   const [auth, setAuth] = useAuth();
@@ -16,7 +16,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post(`${process.env.REACT_APP_API}/login`, {
+      const { data } = await axios.post(`/login`, {
         email,
         password,
       });
