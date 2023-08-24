@@ -6,3 +6,7 @@
 .pointer {
   cursor: pointer;
 }
+
+.hover:hover {
+  color:blue;
+}

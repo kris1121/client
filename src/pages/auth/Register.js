@@ -8,7 +8,7 @@ import { useAuth } from "../../context/auth";
 
 const Register = () => {
   const [name, setName] = useState("krismat");
-  const [email, setEmail] = useState("krismat@op.pl");
+  const [email, setEmail] = useState("kris1@gmail.com");
   const [password, setPassword] = useState("123456");
 
   const [auth, setAuth] = useAuth();
