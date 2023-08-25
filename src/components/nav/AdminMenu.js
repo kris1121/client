@@ -19,6 +19,13 @@ const AdminMenu = () => {
             Create Product
           </NavLink>
         </li>
+        <li>
+          <NavLink
+            className="list-group-item hover"
+            to="/dashboard/admin/products">
+            Products
+          </NavLink>
+        </li>
       </ul>
    </>
   )
