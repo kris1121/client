@@ -14,7 +14,7 @@ const ProductCard = ({ product }) => {
             className="card-img-top"
             src={`${process.env.REACT_APP_API}/product/photo/${product._id}`}
             alt={product.name}
-            style={{ height: "300px", objectFit: "fit" }}
+            style={{ height: "280px", objectFit: "fit" }}
           />
         </Badge.Ribbon>
       </Badge.Ribbon>
