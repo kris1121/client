@@ -15,6 +15,7 @@ import AdminProductUpdate from "./pages/admin/ProductUpdate";
 import UserOrders from "./pages/user/Orders";
 import UserProfile from "./pages/user/Profile";
 import UserDashboard from "./pages/user/Dashboard";
+import Shop from "./pages/Shop";
 
 const PageNotFound = () => {
   return <div className="d-flex justify-content-center align-items-center vh-100">
@@ -29,6 +30,7 @@ const App = () => {
       <Toaster />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/shop" element={<Shop />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 

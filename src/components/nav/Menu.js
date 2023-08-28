@@ -21,6 +21,11 @@ const Menu = () => {
             HOME
           </NavLink>
         </li>
+        <li className="nav-item">
+          <NavLink className="nav-link" aria-current="page" to="/shop">
+            SHOP
+          </NavLink>
+        </li>
         {!auth?.user ? (
           <>
             <li className="nav-item">
@@ -37,12 +42,20 @@ const Menu = () => {
         ) : (
           <div className="dropdown">
             <li>
-              <a className="nav-item pointer dropdown-toggle" data-bs-toggle="dropdown">
+              <a
+                className="nav-item pointer dropdown-toggle"
+                data-bs-toggle="dropdown"
+              >
                 {auth?.user?.name}
               </a>
               <ul className="dropdown-menu">
                 <li>
-                  <NavLink className="nav-link" to={`/dashboard/${auth?.user.role === 1 ? 'admin' : 'user'}`}>
+                  <NavLink
+                    className="nav-link"
+                    to={`/dashboard/${
+                      auth?.user.role === 1 ? "admin" : "user"
+                    }`}
+                  >
                     Dashboard
                   </NavLink>
                 </li>
