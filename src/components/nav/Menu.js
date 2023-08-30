@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 import { useAuth } from "../../context/auth";
+import Search from "../forms/Search";
 
 const Menu = () => {
   const [auth, setAuth] = useAuth();
@@ -26,6 +27,9 @@ const Menu = () => {
             SHOP
           </NavLink>
         </li>
+
+        <Search />
+
         {!auth?.user ? (
           <>
             <li className="nav-item">

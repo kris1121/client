@@ -16,12 +16,16 @@ import UserOrders from "./pages/user/Orders";
 import UserProfile from "./pages/user/Profile";
 import UserDashboard from "./pages/user/Dashboard";
 import Shop from "./pages/Shop";
+import Search from "./pages/Search";
+import ProductView from "./pages/ProductView";
 
 const PageNotFound = () => {
-  return <div className="d-flex justify-content-center align-items-center vh-100">
-    404 | Page not found
-  </div>
-}
+  return (
+    <div className="d-flex justify-content-center align-items-center vh-100">
+      404 | Page not found
+    </div>
+  );
+};
 
 const App = () => {
   return (
@@ -33,6 +37,8 @@ const App = () => {
         <Route path="/shop" element={<Shop />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/search" element={<Search />} />
+        <Route path="/product/:slug" element={<ProductView />} />
 
         <Route path="/dashboard" element={<PrivateRoute />}>
           <Route path="user" element={<UserDashboard />} />
@@ -44,7 +50,10 @@ const App = () => {
           <Route path="admin/category" element={<AdminCategory />} />
           <Route path="admin/product" element={<AdminProduct />} />
           <Route path="admin/products" element={<AdminProducts />} />
-          <Route path="admin/product/update/:slug" element={<AdminProductUpdate />} />
+          <Route
+            path="admin/product/update/:slug"
+            element={<AdminProductUpdate />}
+          />
         </Route>
         <Route path="*" element={<PageNotFound />} replace />
       </Routes>

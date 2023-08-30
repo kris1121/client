@@ -57,7 +57,7 @@ const AdminProducts = () => {
                       <div className="col-md-8">
                         <div className="card-body">
                           <div className="card-title">{product.name}</div>
-                          <p className="card-text">{product.description}</p>
+                          <p className="card-text">{`${product?.description?.substring(0, 200)}...`}</p>
                           <p className="card-text">
                             <small className="text-muted">{moment(product.createdAt).format("MMMM Do YYYY, h:mm:ss a")}</small>
                           </p>

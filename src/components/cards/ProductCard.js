@@ -1,7 +1,12 @@
 import moment from "moment";
 import { Badge } from "antd";
+import { useNavigate } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
+
+  const navigate = useNavigate();
+
+
   return (
     <div className="card mb-3 hoverable">
       <Badge.Ribbon text={`${product.sold} sold`} color="red">
@@ -31,6 +36,7 @@ const ProductCard = ({ product }) => {
         <button
           className="btn btn-primary col card-button"
           style={{ borderBottomLeftRadius: "5px" }}
+          onClick={() => navigate(`/product/${product.slug}`)}
         >
           View Product
         </button>
