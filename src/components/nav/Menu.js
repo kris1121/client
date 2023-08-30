@@ -4,10 +4,12 @@ import { useNavigate } from "react-router-dom";
 
 import { useAuth } from "../../context/auth";
 import Search from "../forms/Search";
+import useCategory from "../../hooks/useCategory";
 
 const Menu = () => {
   const [auth, setAuth] = useAuth();
   const navigate = useNavigate();
+  const categories = useCategory();
 
   const logout = () => {
     setAuth({ ...auth, user: null, token: "" });
@@ -27,6 +29,38 @@ const Menu = () => {
             SHOP
           </NavLink>
         </li>
+
+        <div className="dropdown">
+          <li>
+            <a
+              className="nav-item pointer dropdown-toggle"
+              data-bs-toggle="dropdown"
+              style={{ textDecoration: 'none' }}
+            >
+              CATEGORIES
+            </a>
+            <ul className="dropdown-menu">
+              <li>
+                <NavLink
+                  className="nav-link"
+                  to={`/categories`}
+                >
+                  All categories
+                </NavLink>
+              </li>
+              {categories?.map(category => (
+                <li key={category?._id}>
+                  <NavLink
+                    className="nav-link"
+                    to={`/category/${category?.slug}`}
+                  >
+                    {category?.name}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+          </li>
+        </div>
 
         <Search />
 
@@ -56,9 +90,8 @@ const Menu = () => {
                 <li>
                   <NavLink
                     className="nav-link"
-                    to={`/dashboard/${
-                      auth?.user.role === 1 ? "admin" : "user"
-                    }`}
+                    to={`/dashboard/${auth?.user.role === 1 ? "admin" : "user"
+                      }`}
                   >
                     Dashboard
                   </NavLink>

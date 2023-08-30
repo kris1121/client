@@ -14,6 +14,7 @@ import { MdCancel } from "react-icons/md";
 import moment from "moment";
 
 import Jumbotron from "../components/cards/Jumbotron";
+import ProductCard from "../components/cards/ProductCard";
 
 const ProductView = () => {
   const [product, setProduct] = useState({});
@@ -59,11 +60,10 @@ const ProductView = () => {
             <div className="card mb-3">
               <Badge.Ribbon text={`${product.sold} sold`} color="red">
                 <Badge.Ribbon
-                  text={`${
-                    product.quantity >= 1
+                  text={`${product.quantity >= 1
                       ? `${product.quantity - product.sold} in stock`
                       : "Out of stock"
-                  }`}
+                    }`}
                   placement="start"
                   color={
                     `${product.quantity - product.sold >= 0}` ? "green" : "red"
@@ -109,7 +109,7 @@ const ProductView = () => {
                   </p>
                   <p>
                     {product?.quantity > 0 ? <FaCheck /> : <MdCancel />}
-                    {}{" "}
+                    { }{" "}
                     {product?.quantity > 0 ? "w magazynie" : "brak w magazynie"}
                   </p>
                   <p>
@@ -131,6 +131,15 @@ const ProductView = () => {
           </div>
           <div className="col-md-3">
             <h2>Related products</h2>
+            {related?.length < 1 && <p>Nothing found</p>}
+            {related?.map(product => (
+              <div style={{ maxWidth: '75%' }}>
+                <ProductCard
+                  product={product}
+                  key={product._id}
+                />
+              </div>
+            ))}
 
           </div>
         </div>
