@@ -1,15 +1,18 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { Badge } from "antd";
 
 import { useAuth } from "../../context/auth";
 import Search from "../forms/Search";
 import useCategory from "../../hooks/useCategory";
+import { useCart } from "../../context/cart";
 
 const Menu = () => {
   const [auth, setAuth] = useAuth();
   const navigate = useNavigate();
   const categories = useCategory();
+  const [cart, setCart] = useCart();
 
   const logout = () => {
     setAuth({ ...auth, user: null, token: "" });
@@ -18,7 +21,10 @@ const Menu = () => {
   };
   return (
     <>
-      <ul className="nav container d-flex justify-content-between shadow-sm mb-2">
+      <ul 
+      className="nav container d-flex justify-content-between shadow-sm mb-2
+      align-items-center"
+      >
         <li className="nav-item">
           <NavLink className="nav-link" aria-current="page" to="/">
             HOME
@@ -62,6 +68,15 @@ const Menu = () => {
           </li>
         </div>
 
+        <li className="nav-item">
+          <Badge count={cart?.length} offset={[-5, 15]} showZero>
+          <NavLink className="nav-link" aria-current="page" to="/cart">
+            CART
+          </NavLink>
+
+          </Badge>
+        </li>
+
         <Search />
 
         {!auth?.user ? (
@@ -84,7 +99,7 @@ const Menu = () => {
                 className="nav-item pointer dropdown-toggle"
                 data-bs-toggle="dropdown"
               >
-                {auth?.user?.name}
+                {auth?.user?.name?.toUpperCase()}
               </a>
               <ul className="dropdown-menu">
                 <li>
