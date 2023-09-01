@@ -12,13 +12,16 @@ import {
 } from "react-icons/fa6";
 import { MdCancel } from "react-icons/md";
 import moment from "moment";
+import toast from "react-hot-toast";
 
 import Jumbotron from "../components/cards/Jumbotron";
 import ProductCard from "../components/cards/ProductCard";
+import { useCart } from "../context/cart";
 
 const ProductView = () => {
   const [product, setProduct] = useState({});
   const [related, setRelated] = useState([]);
+  const [cart, setCart] = useCart();
 
   const params = useParams();
 
@@ -124,6 +127,12 @@ const ProductView = () => {
               <button
                 className="btn btn-outline-primary col card-button"
                 style={{ borderBottomRightRadius: "5px" }}
+                onClick={
+                  () => {
+                    setCart([...cart, product]);
+                    localStorage.setItem('cart', JSON.stringify([...cart, product]));
+                    toast.success('Added to cart')
+                  }}
               >
                 Add to Cart
               </button>

@@ -21,9 +21,9 @@ const Menu = () => {
   };
   return (
     <>
-      <ul 
-      className="nav container d-flex justify-content-between shadow-sm mb-2
-      align-items-center"
+      <ul
+        className="nav d-flex justify-content-between shadow-sm mb-2 
+        align-items-center sticky-top bg-light"
       >
         <li className="nav-item">
           <NavLink className="nav-link" aria-current="page" to="/">
@@ -41,20 +41,17 @@ const Menu = () => {
             <a
               className="nav-item pointer dropdown-toggle"
               data-bs-toggle="dropdown"
-              style={{ textDecoration: 'none' }}
+              style={{ textDecoration: "none" }}
             >
               CATEGORIES
             </a>
             <ul className="dropdown-menu">
               <li>
-                <NavLink
-                  className="nav-link"
-                  to={`/categories`}
-                >
+                <NavLink className="nav-link" to={`/categories`}>
                   All categories
                 </NavLink>
               </li>
-              {categories?.map(category => (
+              {categories?.map((category) => (
                 <li key={category?._id}>
                   <NavLink
                     className="nav-link"
@@ -69,11 +66,10 @@ const Menu = () => {
         </div>
 
         <li className="nav-item">
-          <Badge count={cart?.length} offset={[-5, 15]} showZero>
-          <NavLink className="nav-link" aria-current="page" to="/cart">
-            CART
-          </NavLink>
-
+          <Badge count={cart?.length} showZero offset={[-5, 10]}>
+            <NavLink className="nav-link" aria-current="page" to="/cart">
+              CART
+            </NavLink>
           </Badge>
         </li>
 
