@@ -20,6 +20,7 @@ import Search from "./pages/Search";
 import ProductView from "./pages/ProductView";
 import CategoriesList from "./pages/CategoriesList";
 import CategoryView from "./pages/CategoryView";
+import Cart from "./pages/Cart";
 
 const PageNotFound = () => {
   return (
@@ -30,6 +31,7 @@ const PageNotFound = () => {
 };
 
 const App = () => {
+
   return (
     <BrowserRouter>
       <Menu />
@@ -40,6 +42,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/search" element={<Search />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/product/:slug" element={<ProductView />} />
         <Route path="/categories" element={<CategoriesList />} />
         <Route path="/category/:slug" element={<CategoryView />} />
