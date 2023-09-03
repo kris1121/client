@@ -3,7 +3,7 @@ import moment from "moment";
 
 import { useCart } from "../../context/cart";
 
-const HorizontaProductCard = ({ product }) => {
+const HorizontaProductCard = ({ product, remove = true }) => {
   const [cart, setCart] = useCart();
 
   const removeFromCart = (productId) => {
@@ -12,12 +12,12 @@ const HorizontaProductCard = ({ product }) => {
     newCart.splice(index, 1);
     setCart([...newCart]);
     localStorage.setItem("cart", JSON.stringify([...newCart]));
-    };
+  };
 
   return (
-    <div className="card mb-3" style={{ maxWidth: 540 }}>
+    <div className="card mb-3" style={{ maxWidth: '650px', marginRight: 'auto' }}>
       <div className="row g-0">
-        <div className="col-md-4">
+        <div className="col-md-3">
           <img
             src={`${process.env.REACT_APP_API}/product/photo/${product._id}`}
             alt={product.name}
@@ -52,12 +52,12 @@ const HorizontaProductCard = ({ product }) => {
                 Listed {moment(product.createdAt).fromNow()}
               </small>
             </p>
-            <button
-              className="btn btm-sm btn-outline-danger mb-2"
+            {remove && <button
+              className="btn btm-sm btn-outline-danger m-2"
               onClick={() => removeFromCart(product._id)}
             >
               Remove
-            </button>
+            </button>}
           </div>
         </div>
       </div>

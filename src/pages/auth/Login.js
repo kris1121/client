@@ -67,7 +67,6 @@ const Login = () => {
           </div>
         </div>
       </div>
-      <pre>{JSON.stringify(email, null, 4)}</pre>
     </div>
   );
 };

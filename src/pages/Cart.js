@@ -51,7 +51,10 @@ const Cart = () => {
             <div className="col-md-8">
               <div className="row">
                 {cart?.map((product) => (
-                  <HorizontaProductCard product={product} key={nanoid()} />
+                  <HorizontaProductCard 
+                  product={product} 
+                  key={nanoid()} 
+                  />
                 ))}
               </div>
             </div>
