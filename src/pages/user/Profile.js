@@ -31,7 +31,7 @@ const UserProfile = () => {
         address,
         password,
       });
-      console.log("profile updated =>", data);
+      // console.log("profile updated =>", data);
     } catch (error) {
       console.log(error);
     }
