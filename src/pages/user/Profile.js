@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 import { useAuth } from "../../context/auth";
 import Jumbotron from "../../components/cards/Jumbotron";
@@ -32,6 +33,19 @@ const UserProfile = () => {
         password,
       });
       // console.log("profile updated =>", data);
+
+
+      if (data?.error) {
+        toast.error(data.error)
+      } else {
+        // console.log("profile updated =>", data);
+        setAuth({ ...auth, user: data });
+        let ls = localStorage.getItem('auth');
+        ls = JSON.parse(ls);
+        ls.user = data;
+        localStorage.setItem('auth', JSON.stringify(ls));
+        toast.success('Profile updated');
+      }
     } catch (error) {
       console.log(error);
     }
@@ -61,7 +75,7 @@ const UserProfile = () => {
                 type="email"
                 placeholder="Enter your email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                // onChange={(e) => setEmail(e.target.value)}
                 disabled
               />
               <input

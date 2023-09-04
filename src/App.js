@@ -20,7 +20,8 @@ import Search from "./pages/Search";
 import ProductView from "./pages/ProductView";
 import CategoriesList from "./pages/CategoriesList";
 import CategoryView from "./pages/CategoryView";
-import Cart from "./pages/Cart";
+import Cart from "./pages/admin/Cart";
+
 
 const PageNotFound = () => {
   return (
@@ -46,6 +47,7 @@ const App = () => {
         <Route path="/product/:slug" element={<ProductView />} />
         <Route path="/categories" element={<CategoriesList />} />
         <Route path="/category/:slug" element={<CategoryView />} />
+        <Route path="/cart" element={<Cart />} />
 
         <Route path="/dashboard" element={<PrivateRoute />}>
           <Route path="user" element={<UserDashboard />} />

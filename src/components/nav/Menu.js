@@ -95,15 +95,14 @@ const Menu = () => {
                 className="nav-item pointer dropdown-toggle"
                 data-bs-toggle="dropdown"
               >
-                {auth?.user?.name}
+                {auth?.user?.name?.toUpperCase()}
               </a>
               <ul className="dropdown-menu">
                 <li>
                   <NavLink
                     className="nav-link"
-                    to={`/dashboard/${
-                      auth?.user.role === 1 ? "admin" : "user"
-                    }`}
+                    to={`/dashboard/${auth?.user.role === 1 ? "admin" : "user"
+                      }`}
                   >
                     Dashboard
                   </NavLink>

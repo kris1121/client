@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { nanoid } from "nanoid";
 
-import Jumbotron from "../components/cards/Jumbotron";
-import HorizontaProductCard from "../components/cards/HorizontaProductCard";
-import SummaryForCart from "../components/cards/SummaryForCart";
-import { useCart } from "../context/cart";
-import { useAuth } from "../context/auth";
+import Jumbotron from "../../components/cards/Jumbotron";
+import HorizontaProductCard from "../../components/cards/HorizontaProductCard";
+import SummaryForCart from "../../components/cards/SummaryForCart";
+import { useCart } from "../../context/cart";
+import { useAuth } from "../../context/auth";
 
 const Cart = () => {
   const [cart, setCart] = useCart();
@@ -19,9 +19,8 @@ const Cart = () => {
         title={`Hello ${auth?.token && auth?.user?.name}`}
         subtitle={
           cart?.length
-            ? `You have ${cart?.length} items in cart. ${
-                auth?.token ? "" : "Please login to checkout"
-              }`
+            ? `You have ${cart?.length} items in cart. ${auth?.token ? "" : "Please login to checkout"
+            }`
             : "Your cart is empty"
         }
       />
@@ -51,10 +50,7 @@ const Cart = () => {
             <div className="col-md-8">
               <div className="row">
                 {cart?.map((product) => (
-                  <HorizontaProductCard 
-                  product={product} 
-                  key={nanoid()} 
-                  />
+                  <HorizontaProductCard product={product} key={nanoid()} />
                 ))}
               </div>
             </div>

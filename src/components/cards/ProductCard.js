@@ -13,11 +13,11 @@ const ProductCard = ({ product }) => {
   return (
     <div className="card mb-3 hoverable">
       <Badge.Ribbon text={`${product.sold} sold`} color="red">
-              <Badge.Ribbon
-                  text={`${product.quantity >= 1 ? `${product.quantity - product.sold} in stock` : 'Out of stock'}`}
-                  placement="start"
-                  color={`${product.quantity - product.sold >= 0}` ? "green" : "red"}
-              >
+        <Badge.Ribbon
+          text={`${product.quantity >= 1 ? `${product.quantity - product.sold} in stock` : 'Out of stock'}`}
+          placement="start"
+          color={`${product.quantity - product.sold >= 0}` ? "green" : "red"}
+        >
           <img
             className="card-img-top"
             src={`${process.env.REACT_APP_API}/product/photo/${product._id}`}
@@ -27,11 +27,11 @@ const ProductCard = ({ product }) => {
         </Badge.Ribbon>
       </Badge.Ribbon>
       <div className="card-body">
-              <h5>{product?.name}</h5>
-              <h4 className="fw-bold">{product?.price?.toLocaleString("pl", {
-                  style: 'currency',
-                  currency: "PLN"
-              })}</h4>
+        <h5>{product?.name}</h5>
+        <h4 className="fw-bold">{product?.price?.toLocaleString("pl", {
+          style: 'currency',
+          currency: "PLN"
+        })}</h4>
         <p className="card-text">{product?.description.substring(0, 60)}...</p>
       </div>
 
