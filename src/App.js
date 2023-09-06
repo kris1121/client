@@ -12,6 +12,7 @@ import AdminCategory from "./pages/admin/Category";
 import AdminProduct from "./pages/admin/Product";
 import AdminProducts from "./pages/admin/Products";
 import AdminProductUpdate from "./pages/admin/ProductUpdate";
+import AdminOrders from "./pages/admin/Orders"
 import UserOrders from "./pages/user/Orders";
 import UserProfile from "./pages/user/Profile";
 import UserDashboard from "./pages/user/Dashboard";
@@ -59,6 +60,7 @@ const App = () => {
           <Route path="admin/category" element={<AdminCategory />} />
           <Route path="admin/product" element={<AdminProduct />} />
           <Route path="admin/products" element={<AdminProducts />} />
+          <Route path="admin/orders" element={<AdminOrders />} />
           <Route
             path="admin/product/update/:slug"
             element={<AdminProductUpdate />}
