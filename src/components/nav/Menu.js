@@ -17,13 +17,14 @@ const Menu = () => {
   const logout = () => {
     setAuth({ ...auth, user: null, token: "" });
     localStorage.removeItem("auth");
+    setAuth({});
     navigate("/login");
   };
   return (
     <>
       <ul
         className="nav d-flex justify-content-between shadow-sm mb-2 
-        align-items-center sticky-top bg-light"
+        align-items-center sticky-top bg-light box"
       >
         <li className="nav-item">
           <NavLink className="nav-link" aria-current="page" to="/">
@@ -90,7 +91,7 @@ const Menu = () => {
           </>
         ) : (
           <div className="dropdown">
-            <li>
+            <li style={{marginRight: '20px'}}>
               <a
                 className="nav-item pointer dropdown-toggle"
                 data-bs-toggle="dropdown"

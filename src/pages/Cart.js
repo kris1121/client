@@ -26,7 +26,7 @@ const Cart = () => {
         }
       />
       <div className="container-fluid">
-        <div className="row">
+        <div className="row box">
           <div className="col-md-12">
             <div className="p-3 mt-2 mb-2 h4 bg-light text-center">
               {cart?.length ? (

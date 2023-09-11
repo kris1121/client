@@ -7,8 +7,8 @@ import Jumbotron from "../../components/cards/Jumbotron";
 import { useAuth } from "../../context/auth";
 
 const Login = () => {
-  const [email, setEmail] = useState("kris@gmail.com");
-  const [password, setPassword] = useState("123456");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const [auth, setAuth] = useAuth();
   const navigate = useNavigate();
@@ -40,8 +40,8 @@ const Login = () => {
     <div>
       <Jumbotron title="Login" />
       <div className="container mt-5">
-        <div className="row">
-          <div className="col-md-6 offset-md-3">
+        <div className="row justify-content-center">
+          <div className="col-md-3">
             <form onSubmit={handleSubmit}>
               <input
                 type="email"

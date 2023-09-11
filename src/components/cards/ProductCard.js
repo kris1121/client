@@ -3,15 +3,18 @@ import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 import { useCart } from "../../context/cart";
+import { useAuth } from "../../context/auth";
 
 const ProductCard = ({ product }) => {
 
   const navigate = useNavigate();
   const [cart, setCart] = useCart();
+  const [auth, setAuth] = useAuth();
 
 
   return (
-    <div className="card mb-3 hoverable">
+    <div
+      className="card mb-3 hoverable text-center">
       <Badge.Ribbon text={`${product.sold} sold`} color="red">
         <Badge.Ribbon
           text={`${product.quantity >= 1 ? `${product.quantity - product.sold} in stock` : 'Out of stock'}`}
@@ -22,7 +25,7 @@ const ProductCard = ({ product }) => {
             className="card-img-top"
             src={`${process.env.REACT_APP_API}/product/photo/${product._id}`}
             alt={product.name}
-            style={{ height: "280px", objectFit: "fit" }}
+            style={{ height: "300px", maxWidth: "220px" }}
           />
         </Badge.Ribbon>
       </Badge.Ribbon>
@@ -49,7 +52,7 @@ const ProductCard = ({ product }) => {
           onClick={
             () => {
               setCart([...cart, product]);
-              localStorage.setItem('cart', JSON.stringify([...cart, product]));
+              localStorage.setItem(`${auth?.user?.id}`, JSON.stringify([...cart, product]));
               toast.success('Added to cart');
             }}
         >

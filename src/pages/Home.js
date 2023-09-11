@@ -56,14 +56,14 @@ const Home = () => {
   return (
     <div>
       <Jumbotron title="Hello World" subtitle="Welcome to React e-commerce" />
-      <div className="row">
+      <div className="row box">
         <div className="col-md-6">
           <h2 className="p-3 mt-2 mb-2 h4 bg-light text-center">
             New Arrivals
           </h2>
           <div className="row">
             {products?.map((product) => (
-              <div className="col-md-6 col-lg-4" key={product._id}>
+              <div className="col-md-6 col-lg-5" key={product._id}>
                 <ProductCard product={product} />
               </div>
             ))}
@@ -75,7 +75,7 @@ const Home = () => {
           </h2>
           <div className="row">
             {sortedBySold?.map((product) => (
-              <div className="col-md-6 col-lg-4" key={product._id}>
+              <div className="col-md-6 col-lg-5" key={product._id}>
                 <ProductCard product={product} />
               </div>
             ))}

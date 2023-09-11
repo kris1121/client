@@ -2,16 +2,18 @@ import React from "react";
 import moment from "moment";
 
 import { useCart } from "../../context/cart";
+import { useAuth } from "../../context/auth";
 
 const HorizontaProductCard = ({ product, remove = true }) => {
   const [cart, setCart] = useCart();
+  const [auth, setAuth] = useAuth();
 
   const removeFromCart = (productId) => {
     let index = cart.findIndex((item) => item._id === productId);
     let newCart = [...cart];
     newCart.splice(index, 1);
     setCart([...newCart]);
-    localStorage.setItem("cart", JSON.stringify([...newCart]));
+    localStorage.setItem(`${auth?.user?.id}`, JSON.stringify([...newCart]));
   };
 
   return (

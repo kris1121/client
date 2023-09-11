@@ -14,11 +14,11 @@ const UserDashboard = () => {
         subtitle="Dashboard"
       />
       <div className='container-fluid'>
-        <div className='row'>
+        <div className='row box'>
           <div className='col-md-3'>
             <UserMenu />
           </div>
-          <div className='col-md-9'>
+          <div className='col-md-4'>
             <div className='p-3 mt-2 mb-2 h4 bg-light'>User Information</div>
             <ul className='list-group'>
               <li className='list-group-item'>{auth?.user?.name}</li>

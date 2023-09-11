@@ -104,7 +104,7 @@ const AdminCategory = () => {
         subtitle="Admin Dashboard"
       />
       <div className='container-fluid'>
-        <div className='row'>
+        <div className='row box'>
           <div className='col-md-3'>
             <AdminMenu />
           </div>

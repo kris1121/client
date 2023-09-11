@@ -66,7 +66,7 @@ const Shop = () => {
         <>
             <Jumbotron title="Hello World" subtitle='Welcome to React e-commerce' />
             <div className='container-fluid'>
-                <div className='row'>
+                <div className='row box'>
                     <div className='col-md-3'>
                         <h2 className='p-3 mt-2 h4 bg-light text-center'>
                             Filter by categories

@@ -26,6 +26,11 @@
   outline: -webkit-focus-ring-color auto 0px !important;
 }
 
+.box {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
 .jumbotron {
   width: 30wh;
   height: 30vh;
